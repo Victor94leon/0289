@@ -41,10 +41,11 @@ public class Usuario
      */
     public void mostarDatos() 
     {
+        float alimentoTotal = proteinasTotales + carbohidratosTotales + grasasTotales;
         System.out.println("Nombre:                                    " + nombreUsuario);
-        System.out.println("Gramos totales de proteinas ingerido:      " + proteinasTotales);
-        System.out.println("Gramos totales de carbohidratos ingeridos: " + carbohidratosTotales);
-        System.out.println("Gramos totales de grasas ingeridos:        " + grasasTotales);
+        System.out.println("Gramos totales de proteinas ingerido:      " + proteinasTotales + "(" + (proteinasTotales  / alimentoTotal * 100) + "%)");
+        System.out.println("Gramos totales de carbohidratos ingeridos: " + carbohidratosTotales + "(" + (carbohidratosTotales  / alimentoTotal * 100) + "%)");
+        System.out.println("Gramos totales de grasas ingeridos:        " + grasasTotales + "(" + (grasasTotales / alimentoTotal * 100 ) + "%)");
         System.out.println("Calorias totales ingeridas:                " + caloriasTotales);
     }
 }
