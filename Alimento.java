@@ -8,19 +8,19 @@ public class Alimento
     private float carbohidrato;
     // Guarda información sobre el nivel de grasa de un alimento por cada 100 gramos de alimento.
     private float grasa;
-    
+
     /**
      * Crea un objeto de la clase Alimento con los parametro para guardar su nombre y la
      * cantidad de macronutrientes por cada 100 gramos de alimento.
      */
     public Alimento(String nombre, float proteina, float carbohidrato, float grasa) 
     {
-           this.nombre = nombre;
-           this.proteina = proteina;
-           this.carbohidrato = carbohidrato;
-           this.grasa = grasa;
+        this.nombre = nombre;
+        this.proteina = proteina;
+        this.carbohidrato = carbohidrato;
+        this.grasa = grasa;
     }
-    
+
     /**
      * Método que muestra la cantidad de macronutrientes que contiene el alimento e indica
      * el componente mayoritario
@@ -32,7 +32,7 @@ public class Alimento
         System.out.println("Carbohidratos por cada 100 gramos: " + carbohidrato);       
         System.out.println("Grasas por cada 100 gramos:        " + grasa);        
         System.out.println("Calorias:                          " + (proteina * 4 + carbohidrato * 4 + grasa * 9));
-        
+
         String componenteMayoritario = "Proteinas";        
         if (carbohidrato == grasa) {
             if (carbohidrato == proteina) {
@@ -58,7 +58,39 @@ public class Alimento
                 componenteMayoritario = "Grasas";
             }
         }
-        
+
         System.out.println("Componente/s mayoritario/s:        " + componenteMayoritario);
+    }
+
+    /**
+     * Método que devuelve la cantidad de proteinas
+     */
+    public float getProteinas()
+    {
+        return proteina;
+    }
+
+    /**
+     * Método que devuelve la cantidad de carbohidratos
+     */
+    public float getCarbohidratos()
+    {
+        return carbohidrato;
+    }
+
+    /**
+     * Método que devuelve la cantidad de grasa
+     */
+    public float getGrasas()
+    {
+        return grasa;
+    }
+
+    /**
+     * Método que devuelve la cantidad de calorías
+     */
+    public float getCalorias()
+    {
+        return (proteina * 4 + carbohidrato * 4 + grasa * 9);
     }
 }
