@@ -23,6 +23,7 @@ public class Usuario
         carbohidratosTotales = 0;
         grasasTotales = 0;
         caloriasTotales = 0;
+        alimentoConMasCalorias = null;
     }
 
     /**
