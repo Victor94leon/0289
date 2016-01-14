@@ -10,6 +10,8 @@ public class Usuario
     private float grasasTotales;
     // Float que guarda la cantidad de calorías totales
     private float caloriasTotales;
+    // Atributo de tipo Alimento que guarda la información del alimento con más calorías consumido por el usuario
+    private Alimento alimentoConMasCalorias;
 
     /**
      * Constructor for objects of class Usuario
@@ -32,6 +34,14 @@ public class Usuario
         carbohidratosTotales = carbohidratosTotales + (alimentoQueCome.getCarbohidratos() / 100 * gramosDeAlimentoQueCome);
         grasasTotales = grasasTotales + (alimentoQueCome.getGrasas() / 100 * gramosDeAlimentoQueCome);
         caloriasTotales = caloriasTotales + (alimentoQueCome.getCalorias() / 100 * gramosDeAlimentoQueCome);
+        if (alimentoConMasCalorias != null) {
+            if (alimentoQueCome.getCalorias() >= alimentoConMasCalorias.getCalorias()) {
+                alimentoConMasCalorias = alimentoQueCome;
+            }
+        }
+        else {
+            alimentoConMasCalorias = alimentoQueCome;
+        }
     }
 
     /**
@@ -76,7 +86,22 @@ public class Usuario
             comparacion = " ha ingerido más calorías que ";
         }
         System.out.println
-            (nombreUsuario + comparacion + personaParaComparar.getNombreUsuario() + 
+        (nombreUsuario + comparacion + personaParaComparar.getNombreUsuario() + 
             "(" + caloriasTotales + " frente a " + personaParaComparar.getCaloriasTotales() + ")");
+    }
+
+    /**
+     * Método que muestra por pantalla el alimento más calorico por cada 100 gramos consumido hasta ahoraporel usuario
+     */
+    public void mostrarAlimentoConMasCalorias()
+    {
+        if (alimentoConMasCalorias != null) {
+            System.out.println("Alimento más calorico ingerido por este usuario hasta el momento: " +
+                alimentoConMasCalorias.getNombre() +
+                "(" + alimentoConMasCalorias.getCalorias() + " calorias por cada 100 gramos)");
+        }
+        else {
+            System.out.println("El usuario aún no ha ingerido ningun alimento");
+        }
     }
 }

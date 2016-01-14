@@ -85,6 +85,14 @@ public class Alimento
     {
         return grasa;
     }
+    
+    /**
+     * Método que devuelve el nombre del alimento
+     */
+    public String getNombre()
+    {
+        return nombre;
+    }
 
     /**
      * Método que devuelve la cantidad de calorías
