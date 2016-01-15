@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Usuario
 {
     // String para guardar el nombre del usuario
@@ -12,6 +13,8 @@ public class Usuario
     private float caloriasTotales;
     // Atributo de tipo Alimento que guarda la información del alimento con más calorías consumido por el usuario
     private Alimento alimentoConMasCalorias;
+    // ArrayList para almacenar atributos de tipo Alimento
+    private ArrayList<Alimento> alimentosIngeridos;
 
     /**
      * Constructor for objects of class Usuario
@@ -24,6 +27,7 @@ public class Usuario
         grasasTotales = 0;
         caloriasTotales = 0;
         alimentoConMasCalorias = null;
+        alimentosIngeridos = new ArrayList<Alimento>();
     }
 
     /**
@@ -43,6 +47,7 @@ public class Usuario
         else {
             alimentoConMasCalorias = alimentoQueCome;
         }
+        alimentosIngeridos.add(alimentoQueCome);
     }
 
     /**
@@ -52,6 +57,8 @@ public class Usuario
     {
         float alimentoTotal = proteinasTotales + carbohidratosTotales + grasasTotales;
         System.out.println("Nombre:                                    " + nombreUsuario);
+        
+ 
         System.out.println("Gramos totales de proteinas ingerido:      " + proteinasTotales + "(" + (proteinasTotales  / alimentoTotal * 100) + "%)");
         System.out.println("Gramos totales de carbohidratos ingeridos: " + carbohidratosTotales + "(" + (carbohidratosTotales  / alimentoTotal * 100) + "%)");
         System.out.println("Gramos totales de grasas ingeridos:        " + grasasTotales + "(" + (grasasTotales / alimentoTotal * 100 ) + "%)");
@@ -103,6 +110,26 @@ public class Usuario
         }
         else {
             System.out.println("El usuario aún no ha ingerido ningun alimento");
+        }
+    }
+
+    /**
+     * Método que muestra por pantala un alimento ingerido por el usuario introduciendo un parametro
+     * que indica la posición en la que el usuario comio el parametro
+     */
+    public void mostrarAlimentoIngerido(int posicionDelAlimento)
+    {
+        if (alimentosIngeridos.size() > 0) {
+            if (posicionDelAlimento > 0 && posicionDelAlimento <= alimentosIngeridos.size()) {
+                Alimento alimentoSeleccionado = alimentosIngeridos.get(posicionDelAlimento-1);
+                alimentoSeleccionado.muestraDatos();
+            }
+            else {
+                System.out.println("No hay alimentos en esa posición de la lista (posiciones entre 1 y " + (alimentosIngeridos.size()) + ")");
+            }
+        }
+        else {
+            System.out.println("El usuario aún no ha ingerido ningún alimento");
         }
     }
 }
