@@ -57,8 +57,7 @@ public class Usuario
     {
         float alimentoTotal = proteinasTotales + carbohidratosTotales + grasasTotales;
         System.out.println("Nombre:                                    " + nombreUsuario);
-        
- 
+
         System.out.println("Gramos totales de proteinas ingerido:      " + proteinasTotales + "(" + (proteinasTotales  / alimentoTotal * 100) + "%)");
         System.out.println("Gramos totales de carbohidratos ingeridos: " + carbohidratosTotales + "(" + (carbohidratosTotales  / alimentoTotal * 100) + "%)");
         System.out.println("Gramos totales de grasas ingeridos:        " + grasasTotales + "(" + (grasasTotales / alimentoTotal * 100 ) + "%)");
@@ -132,7 +131,7 @@ public class Usuario
             System.out.println("El usuario aún no ha ingerido ningún alimento");
         }
     }
-    
+
     /**
      * Método indica si el usuario ha comido un alimento introducido por parámetro más de una vez o no,
      * y en caso afirmativo, cuántas veces lo ha echo
@@ -145,7 +144,7 @@ public class Usuario
                 numeroDeVecesIngerido++;
             }
         }
-        
+
         if (numeroDeVecesIngerido == 0) {
             System.out.println("El usuario no ha ingerido ese alimento");
         }
@@ -156,15 +155,15 @@ public class Usuario
             System.out.println("Ha ingerido el alimento más de una vez (Se ha consumido " + numeroDeVecesIngerido + " veces)");
         }
     }
-    
+
     /**
      * Método que muestra por pantalla los alimentos que el usuario ha consumido más de una vez
      */
     public void alimentosRepetidos()
     {
+        ArrayList<String> listaDeNombres = new ArrayList<String>();
         for (Alimento alimentoEnLaLista : alimentosIngeridos) {
-            
-            while (alimentoEnLaLista) {}
+            listaDeNombres.add(alimentoEnLaLista.getNombre());
         }
     }
 }
