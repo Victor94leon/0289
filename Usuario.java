@@ -149,8 +149,22 @@ public class Usuario
         if (numeroDeVecesIngerido == 0) {
             System.out.println("El usuario no ha ingerido ese alimento");
         }
+        else if (numeroDeVecesIngerido == 1) {
+            System.out.println("El usuario ha ingerido el alimento una vez");
+        }
         else {
-            System.out.println("Veces que el usuario ha consumido " + nombreAlimento + ": " + numeroDeVecesIngerido);
+            System.out.println("Ha ingerido el alimento más de una vez (Se ha consumido " + numeroDeVecesIngerido + " veces)");
+        }
+    }
+    
+    /**
+     * Método que muestra por pantalla los alimentos que el usuario ha consumido más de una vez
+     */
+    public void alimentosRepetidos()
+    {
+        for (Alimento alimentoEnLaLista : alimentosIngeridos) {
+            
+            while (alimentoEnLaLista) {}
         }
     }
 }
