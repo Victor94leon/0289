@@ -132,4 +132,25 @@ public class Usuario
             System.out.println("El usuario aún no ha ingerido ningún alimento");
         }
     }
+    
+    /**
+     * Método indica si el usuario ha comido un alimento introducido por parámetro más de una vez o no,
+     * y en caso afirmativo, cuántas veces lo ha echo
+     */
+    public void vecesQueIngiereAlimento(String nombreAlimento)
+    {
+        int numeroDeVecesIngerido = 0;
+        for (Alimento alimentoEnLaLista: alimentosIngeridos) {
+            if (alimentoEnLaLista.getNombre() == nombreAlimento) {
+                numeroDeVecesIngerido++;
+            }
+        }
+        
+        if (numeroDeVecesIngerido == 0) {
+            System.out.println("El usuario no ha ingerido ese alimento");
+        }
+        else {
+            System.out.println("Veces que el usuario ha consumido " + nombreAlimento + ": " + numeroDeVecesIngerido);
+        }
+    }
 }
