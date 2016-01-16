@@ -15,6 +15,8 @@ public class Usuario
     private Alimento alimentoConMasCalorias;
     // ArrayList para almacenar atributos de tipo Alimento
     private ArrayList<Alimento> alimentosIngeridos;
+    // ArrayList para almacenar strings con el nombre de los alimentos
+    private ArrayList<String> nombresAlimentosIngeridos;
 
     /**
      * Constructor for objects of class Usuario
@@ -28,6 +30,7 @@ public class Usuario
         caloriasTotales = 0;
         alimentoConMasCalorias = null;
         alimentosIngeridos = new ArrayList<Alimento>();
+        nombresAlimentosIngeridos = new ArrayList<String>();
     }
 
     /**
@@ -48,8 +51,24 @@ public class Usuario
             alimentoConMasCalorias = alimentoQueCome;
         }
         alimentosIngeridos.add(alimentoQueCome);
+        
+        // Parametro int para contar las veces que se repite el nombre de un alimento en el ArrayList que guarda los nombres repetidos
+        int alimentoRepetido = 0;
+        
+        // Para cada objeto de tipo Alimento en la lista alimentosIngeridos se va a evaluar si coincide con el nombre del alimentoQueCome
+        for (Alimento alimentoEnLista : alimentosIngeridos) {
+            if (alimentoQueCome.getNombre() == alimentoEnLista.getNombre()){
+                // Cada vez que coincide se incrementa la variable local para guardar las veces que se repite el alimento
+                alimentoRepetido++;
+            }            
+        }
+        
+        // Si el nombre del alimento se ha repetido solo 2 veces se añade al ArrayList de los nombres repetidos, 
+        // en caso de repetirse más veces quiere decir que ya ha sido añadido antes por lo que no se necesita añadir otra vez
+        if (alimentoRepetido == 2) {
+            nombresAlimentosIngeridos.add(alimentoQueCome.getNombre());
+        }
     }
-
     /**
      * Método quemuestra por pantalla el estado del usuario mostando las cantidades ingeridas
      */
@@ -57,7 +76,6 @@ public class Usuario
     {
         float alimentoTotal = proteinasTotales + carbohidratosTotales + grasasTotales;
         System.out.println("Nombre:                                    " + nombreUsuario);
-
         System.out.println("Gramos totales de proteinas ingerido:      " + proteinasTotales + "(" + (proteinasTotales  / alimentoTotal * 100) + "%)");
         System.out.println("Gramos totales de carbohidratos ingeridos: " + carbohidratosTotales + "(" + (carbohidratosTotales  / alimentoTotal * 100) + "%)");
         System.out.println("Gramos totales de grasas ingeridos:        " + grasasTotales + "(" + (grasasTotales / alimentoTotal * 100 ) + "%)");
@@ -161,9 +179,14 @@ public class Usuario
      */
     public void alimentosRepetidos()
     {
-        ArrayList<String> listaDeNombres = new ArrayList<String>();
-        for (Alimento alimentoEnLaLista : alimentosIngeridos) {
-            listaDeNombres.add(alimentoEnLaLista.getNombre());
+        if (alimentosIngeridos.size() > 0) {
+            System.out.println("**Lista de alimentos que se consumen más de una vez**");
+            for (String elementoDeLaLista : nombresAlimentosIngeridos) {
+                System.out.println(elementoDeLaLista);
+            }
+        }
+        else {
+            System.out.println("El usuario aún no ha ingerido ningún alimento");
         }
     }
 }

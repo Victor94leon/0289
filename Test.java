@@ -30,4 +30,27 @@ public class Test
         Alimento alimento7 = new Alimento("Alimento7",5f,5f,10f);
         alimento7.muestraDatos();
     }
+    
+    public void test2 ()
+    {
+        Usuario usuario = new Usuario("Pepe");
+        
+        Alimento Pollo = new Alimento("Pollo",10,10,10);
+        Alimento Cerdo = new Alimento("Cerdo",15,15,15);
+        Alimento Lechuga = new Alimento("Lechuga",5,5,5);
+        Alimento CocaPepsi = new Alimento("CocaPepsi",5,5,5);
+        Alimento Pavo = new Alimento("Pavo",5,5,5);
+        
+        usuario.comer(Pavo,500);
+        usuario.comer(Pollo,100);    
+        usuario.comer(Cerdo,100);
+        usuario.comer(Pavo,150);
+        usuario.comer(Cerdo,100);        
+        usuario.comer(Lechuga,100);
+        usuario.comer(Lechuga,100);
+        usuario.comer(CocaPepsi,50000);
+        usuario.comer(Lechuga,100);
+        
+        usuario.alimentosRepetidos();
+    }
 }
